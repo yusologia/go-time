@@ -6,8 +6,7 @@ import (
 )
 
 func DateTimeDiffForHumans(from time.Time, to time.Time) string {
-	diff := to.Sub(from)
-	diffSeconds := int(diff.Seconds())
+	diffSeconds := setDiffSeconds(from, to)
 
 	logia := Logiatime{}
 	logia.SetLang()
@@ -42,6 +41,48 @@ func DateTimeDiffForHumans(from time.Time, to time.Time) string {
 	} else {
 		return result + " " + ago
 	}
+}
+
+func DiffInYear(from time.Time, to time.Time) int {
+	diffSeconds := setDiffSeconds(from, to)
+	diffSeconds, year := setTimeInt(diffSeconds, YEAR_IN_SECOND)
+
+	return year
+}
+
+func DiffInMonth(from time.Time, to time.Time) int {
+	diffSeconds := setDiffSeconds(from, to)
+	diffSeconds, month := setTimeInt(diffSeconds, MONTH_IN_SECOND)
+
+	return month
+}
+
+func DiffInWeek(from time.Time, to time.Time) int {
+	diffSeconds := setDiffSeconds(from, to)
+	diffSeconds, week := setTimeInt(diffSeconds, WEEK_IN_SECOND)
+
+	return week
+}
+
+func DiffInDay(from time.Time, to time.Time) int {
+	diffSeconds := setDiffSeconds(from, to)
+	diffSeconds, day := setTimeInt(diffSeconds, DAY_IN_SECOND)
+
+	return day
+}
+
+func DiffInHour(from time.Time, to time.Time) int {
+	diffSeconds := setDiffSeconds(from, to)
+	diffSeconds, hour := setTimeInt(diffSeconds, HOUR_IN_SECOND)
+
+	return hour
+}
+
+func DiffInMinute(from time.Time, to time.Time) int {
+	diffSeconds := setDiffSeconds(from, to)
+	diffSeconds, minute := setTimeInt(diffSeconds, MINUTE_IN_SECOND)
+
+	return minute
 }
 
 func inYear(logia Logiatime, diffSeconds int) string {
@@ -139,6 +180,11 @@ func inMinute(logia Logiatime, diffSeconds int, secondVal bool) string {
 	}
 
 	return fmt.Sprintf("%d %s", minute, text) + extra
+}
+
+func setDiffSeconds(from time.Time, to time.Time) int {
+	diff := to.Sub(from)
+	return int(diff.Seconds())
 }
 
 func setTimeInt(diffSeconds int, baseTime int) (int, int) {

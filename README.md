@@ -12,7 +12,7 @@ Using it is very simple, just look at this example code ["example"](https://gith
 We have also prepared several languages, and you only need to add the following code to your **.env**
 
 ```text
-LOGIATIME_LANG=<language> // Ex: Indonesia
+LOGIATIME_LANG=<language> // Ex: Indonesian
 ```
 
 #### Here is the list of available languages:
