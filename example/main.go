@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"github.com/joho/godotenv"
-	logiatime "github.com/yusologia/go-time"
+	logiatime "github.com/yusologia/go-time/v2"
 	"time"
 )
 

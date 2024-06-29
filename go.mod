@@ -1,4 +1,4 @@
-module github.com/yusologia/go-time
+module github.com/yusologia/go-time/v2
 
 go 1.22
 
