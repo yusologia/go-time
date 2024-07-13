@@ -28,7 +28,7 @@ func DateTimeDiffForHumans(from time.Time, to time.Time) string {
 	} else if diffSeconds >= 1 {
 		result = fmt.Sprintf("%d %s", diffSeconds, setTimeText(logia, "Second", diffSeconds))
 	} else {
-		return ""
+		return logia.Translate("< 1 Second")
 	}
 
 	ago := "Ago"
