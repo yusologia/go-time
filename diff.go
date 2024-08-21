@@ -160,7 +160,7 @@ func inHour(logia Logiatime, diffSeconds int, secondVal bool) string {
 
 	extra := ""
 	if diffSeconds >= MINUTE_IN_SECOND {
-		extra = inWeek(logia, diffSeconds, true)
+		extra = inMinute(logia, diffSeconds, true)
 	}
 
 	return fmt.Sprintf("%d %s", hour, text) + extra
